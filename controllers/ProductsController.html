@@ -1,0 +1,1838 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>emmar documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">emmar documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content controller">
+                   <div class="content-data">
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Controllers</li>
+  <li class="breadcrumb-item" >ProductsController</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/products/controllers/products.controller.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Prefix</h3>
+            </p>
+            <p class="comment">
+                <code>products</code>
+            </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAll" >findAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOne" >findOne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getIfNotDiscount" >getIfNotDiscount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#relatedProducts" >relatedProducts</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#search" >search</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#topRatedProducts" >topRatedProducts</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#update" >update</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateAll" >updateAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#delete" >delete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOneByRelations" >findOneByRelations</a>
+                            </li>
+                            <li>
+                                <a href="#getTrans" >getTrans</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(user, body: <a href="../classes/Products.html" target="_self">Products</a>, images: Array<Express.Multer.File>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post()<br />@ApiCreatedResponse({description: &#x27;The record has been successfully created.&#x27;, type: Products})<br />@UseInterceptors(undefined)<br />@UseGuards(undefined)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="138"
+                                    class="link-to-prism">src/modules/products/controllers/products.controller.ts:138</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="../classes/Products.html" target="_self" >Products</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>images</td>
+                                            <td>
+                                                        <code>Array&lt;Express.Multer.File&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAll"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAll(query, req)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br />@HttpCode(HttpStatus.OK)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseController.html" target="_self" >BaseController</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseController.html#source" target="_self" >BaseController:88</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>query</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>req</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOne"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findOne</b></span>
+                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOne(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;:id&#x27;)<br />@HttpCode(HttpStatus.OK)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseController.html" target="_self" >BaseController</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseController.html#source" target="_self" >BaseController:295</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getIfNotDiscount"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>getIfNotDiscount</b></span>
+                        <a href="#getIfNotDiscount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getIfNotDiscount(startDate, endDate)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;getIfNotDiscount/:startDate/:endDate&#x27;)<br />@HttpCode(HttpStatus.OK)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="429"
+                                    class="link-to-prism">src/modules/products/controllers/products.controller.ts:429</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>startDate</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>endDate</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="relatedProducts"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>relatedProducts</b></span>
+                        <a href="#relatedProducts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>relatedProducts(query, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;relatedProducts/:id&#x27;)<br />@HttpCode(HttpStatus.OK)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="327"
+                                    class="link-to-prism">src/modules/products/controllers/products.controller.ts:327</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>query</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="search"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>search</b></span>
+                        <a href="#search"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>search(body, options)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;search&#x27;)<br />@HttpCode(HttpStatus.OK)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseController.html" target="_self" >BaseController</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseController.html#source" target="_self" >BaseController:185</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>body</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="topRatedProducts"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>topRatedProducts</b></span>
+                        <a href="#topRatedProducts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>topRatedProducts(query, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;topRatedProducts/:id&#x27;)<br />@HttpCode(HttpStatus.OK)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="375"
+                                    class="link-to-prism">src/modules/products/controllers/products.controller.ts:375</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>query</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, body: <a href="../classes/Products.html" target="_self">Products</a>, images: Array<Express.Multer.File>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Put(&#x27;:id&#x27;)<br />@ApiCreatedResponse({description: &#x27;The record has been successfully updated.&#x27;, type: Products})<br />@UseInterceptors(undefined)<br />@UseGuards(undefined)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="267"
+                                    class="link-to-prism">src/modules/products/controllers/products.controller.ts:267</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="../classes/Products.html" target="_self" >Products</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>images</td>
+                                            <td>
+                                                        <code>Array&lt;Express.Multer.File&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateAll"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>updateAll</b></span>
+                        <a href="#updateAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateAll(body, options)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;updateAll&#x27;)<br />@HttpCode(HttpStatus.OK)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="58"
+                                    class="link-to-prism">src/modules/products/controllers/products.controller.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>body</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="delete"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>delete</b></span>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>delete(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Delete(&#x27;:id&#x27;)<br />@UseGuards(undefined)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseController.html" target="_self" >BaseController</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseController.html#source" target="_self" >BaseController:91</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOneByRelations"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findOneByRelations</b></span>
+                        <a href="#findOneByRelations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOneByRelations(body)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;findOne&#x27;)<br />@HttpCode(HttpStatus.OK)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseController.html" target="_self" >BaseController</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseController.html#source" target="_self" >BaseController:81</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>body</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTrans"></a>
+                    <span class="name">
+                        <span ><b>getTrans</b></span>
+                        <a href="#getTrans"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTrans(key, req)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseController.html" target="_self" >BaseController</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseController.html#source" target="_self" >BaseController:99</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>req</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { UserInfo } from &quot;../../../common/decorator/user.decorator&quot;;
+import {
+  Controller,
+  Post,
+  Body,
+  Put,
+  Param,
+  UseGuards,
+  UseFilters,
+  Req,
+  Get,
+  UploadedFiles,
+  UseInterceptors,
+  HttpCode,
+  HttpStatus,
+  Query,
+} from &quot;@nestjs/common&quot;;
+import { Products } from &quot;../dto/products.dto&quot;;
+import { ProductsService } from &quot;../services/products.service&quot;;
+import { ApiCreatedResponse, ApiTags } from &quot;@nestjs/swagger&quot;;
+import { AuthGuard } from &quot;@nestjs/passport&quot;;
+import { BaseController } from &quot;src/common/base/baseController.controller&quot;;
+import { HttpExceptionFilter } from &quot;src/common/filter/http-exception.filter&quot;;
+import { FilesInterceptor } from &quot;@nestjs/platform-express&quot;;
+import { diskStorage } from &quot;multer&quot;;
+import { Helper } from &quot;src/common/helpers/helper&quot;;
+import { TagsService } from &quot;../services/tags.service&quot;;
+import {
+  Between,
+  In,
+  LessThanOrEqual,
+  Like,
+  MoreThanOrEqual,
+  Not,
+  Repository,
+} from &quot;typeorm&quot;;
+import { InjectRepository } from &quot;@nestjs/typeorm&quot;;
+import { DiscountsItemsEntity } from &quot;../entity/discountsItems.entity&quot;;
+import moment &#x3D; require(&quot;moment&quot;);
+
+@ApiTags(&quot;Products&quot;)
+@Controller(&quot;products&quot;)
+// @UseGuards(AuthGuard(&quot;jwt&quot;))
+@UseFilters(HttpExceptionFilter)
+export class ProductsController extends BaseController {
+  constructor(
+    public readonly productsService: ProductsService,
+    public readonly tagsService: TagsService,
+
+    @InjectRepository(DiscountsItemsEntity)
+    private readonly discountsItemsRepository: Repository&lt;DiscountsItemsEntity&gt;
+  ) {
+    super(productsService);
+  }
+
+  @Post(&quot;updateAll&quot;)
+  @HttpCode(HttpStatus.OK)
+  async updateAll(@Body() body, @Query() options) {
+    for (let item of body.list) {
+      delete item.images;
+
+      if (item.categores) {
+        let categores &#x3D; [];
+        for (const itm of item.categores) {
+          categores.push({ id: itm });
+        }
+        item.categores &#x3D; categores;
+      }
+      if (item.stones) {
+        let stones &#x3D; [];
+        for (const itm of item.stones) {
+          stones.push({ id: itm });
+        }
+        item.stones &#x3D; stones;
+      }
+
+      this.productsService.updateById(item.id, item);
+    }
+
+    return {
+      data: &quot;done&quot;,
+      returnStatus: true,
+    };
+  }
+
+  @Get()
+  @HttpCode(HttpStatus.OK)
+  async findAll(@Query() query, @Req() req) {
+    if (query.name) {
+      query.name &#x3D; Like(&quot;%&quot; + query.name + &quot;%&quot;);
+    }
+    let data &#x3D; await this.service.find({ where: query });
+    const ids &#x3D; data.map((item) &#x3D;&gt; item.id);
+
+    const nowDate &#x3D; new Date();
+    const discountsList &#x3D; await this.discountsItemsRepository.find({
+      where: {
+        startDate: LessThanOrEqual(nowDate),
+        endDate: MoreThanOrEqual(nowDate),
+        productsId: In(ids),
+      },
+    });
+
+    for (let itm of data) {
+      const xone &#x3D; discountsList.find((el) &#x3D;&gt; el.productsId.id &#x3D;&#x3D; itm.id);
+      itm.hasDiscount &#x3D; false;
+      itm.discount &#x3D; 0;
+      itm.newPrice &#x3D; 0;
+      if (xone) {
+        const value &#x3D; xone.value / 100;
+        const discount &#x3D; itm.price * value;
+        itm.discount &#x3D; xone.value;
+        itm.newPrice &#x3D; itm.price - discount;
+        itm.hasDiscount &#x3D; true;
+      }
+    }
+
+    return {
+      data,
+      returnStatus: true,
+    };
+  }
+
+  @Post()
+  @ApiCreatedResponse({
+    description: &quot;The record has been successfully created.&quot;,
+    type: Products,
+  })
+  @UseInterceptors(
+    FilesInterceptor(&quot;images&quot;, 20, {
+      storage: diskStorage({
+        destination: Helper.destinationPath,
+        filename: Helper.customFileName,
+      }),
+    })
+  )
+  @UseGuards(AuthGuard(&quot;jwt&quot;))
+  async create(
+    @UserInfo() user,
+    @Body() body: Products,
+    @UploadedFiles() images: Array&lt;Express.Multer.File&gt;
+  ) {
+    const list &#x3D; [];
+    if (images.length &gt; 0) {
+      for (const item of images) {
+        list.push(item.filename);
+      }
+    }
+
+    // delete body.imagesNotRemove;
+
+    // if (body.tags) {
+    //   body.tags &#x3D; JSON.parse(body.tags);
+    // }
+
+    // if (body.categores) {
+    //   const categoresList &#x3D; JSON.parse(body.categores);
+    //   let categores &#x3D; [];
+    //   for (const item of categoresList) {
+    //     categores.push({ id: item });
+    //   }
+    //   body.categores &#x3D; categores;
+    // }
+    // if (body.stones) {
+    //   const stonesList &#x3D; JSON.parse(body.stones);
+
+    //   let stones &#x3D; [];
+    //   for (const item of stonesList) {
+    //     stones.push({ id: item });
+    //   }
+    //   body.stones &#x3D; stones;
+    // }
+
+    return {
+      data: await this.productsService.create({
+        ...body,
+        images: JSON.stringify(list),
+      }),
+      returnStatus: true,
+    };
+  }
+
+  @Post(&quot;search&quot;)
+  @HttpCode(HttpStatus.OK)
+  async search(@Body() body, @Query() options) {
+    let opt &#x3D; {
+      limit: Number(options.limit) || 10,
+      page: Number(options.page) || 1,
+    };
+
+    let order: any &#x3D; { id: &quot;DESC&quot; };
+
+    let sortCol &#x3D; options.sortCol;
+
+    if (sortCol) {
+      order &#x3D; {};
+      order[sortCol] &#x3D; options.sortType;
+    }
+
+    if (body.priceFrom || body.priceTo) {
+      body.price &#x3D; Between(body.priceFrom, body.priceTo);
+      delete body.priceFrom;
+      delete body.priceTo;
+    }
+
+    let where &#x3D; body;
+    if (body.name) {
+      const name &#x3D; body.name;
+      delete body.name;
+      where &#x3D; [
+        {
+          ...body,
+          name: Like(&quot;%&quot; + name + &quot;%&quot;),
+        },
+       
+      ];
+
+    }
+
+    const data &#x3D; await this.service.paginate(opt, { order, where });
+
+    const ids &#x3D; data.items.map((item) &#x3D;&gt; item.id);
+
+    const nowDate &#x3D; new Date();
+    const discountsList &#x3D; await this.discountsItemsRepository.find({
+      where: {
+        startDate: LessThanOrEqual(nowDate),
+        endDate: MoreThanOrEqual(nowDate),
+        productsId: In(ids),
+      },
+    });
+
+    for (let item of data.items) {
+      const xone &#x3D; discountsList.find((el) &#x3D;&gt; el.productsId.id &#x3D;&#x3D; item.id);
+      item.hasDiscount &#x3D; false;
+      item.discount &#x3D; 0;
+      item.newPrice &#x3D; 0;
+      if (xone) {
+        const value &#x3D; xone.value / 100;
+        const discount &#x3D; item.price * value;
+        item.discount &#x3D; xone.value;
+        item.newPrice &#x3D; item.price - discount;
+        item.hasDiscount &#x3D; true;
+      }
+    }
+
+    return {
+      data,
+      returnStatus: true,
+    };
+  }
+
+  @Put(&quot;:id&quot;)
+  @ApiCreatedResponse({
+    description: &quot;The record has been successfully updated.&quot;,
+    type: Products,
+  })
+  @UseInterceptors(
+    FilesInterceptor(&quot;images&quot;, 20, {
+      storage: diskStorage({
+        destination: Helper.destinationPath,
+        filename: Helper.customFileName,
+      }),
+    })
+  )
+  @UseGuards(AuthGuard(&quot;jwt&quot;))
+  async update(
+    @Param(&quot;id&quot;) id: number,
+    @Body() body: Products,
+    @UploadedFiles() images: Array&lt;Express.Multer.File&gt;
+  ) {
+    let imagesNotRemove &#x3D; [];
+    if (body.imagesNotRemove) {
+      imagesNotRemove &#x3D; JSON.parse(body.imagesNotRemove);
+    }
+    const list &#x3D; [...imagesNotRemove];
+    if (images.length &gt; 0) {
+      for (const item of images) {
+        list.push(item.filename);
+      }
+    }
+
+    
+
+    delete body.imagesNotRemove;
+
+    return await this.productsService.updateById(id, {
+      ...body,
+      images: JSON.stringify(list),
+    });
+  }
+
+  @Get(&quot;:id&quot;)
+  @HttpCode(HttpStatus.OK)
+  async findOne(@Param(&quot;id&quot;) id: number) {
+    const body &#x3D; await this.service.findById(id);
+    let data: any &#x3D; {};
+
+    const nowDate &#x3D; new Date();
+    const xone &#x3D; await this.discountsItemsRepository.findOne({
+      where: {
+        startDate: LessThanOrEqual(nowDate),
+        endDate: MoreThanOrEqual(nowDate),
+        productsId: id,
+      },
+    });
+
+    data.hasDiscount &#x3D; false;
+    data.discount &#x3D; 0;
+    data.newPrice &#x3D; 0;
+    if (xone) {
+      const value &#x3D; xone.value / 100;
+      const discount &#x3D; data.price * value;
+      data.discount &#x3D; xone.value;
+      data.newPrice &#x3D; data.price - discount;
+      data.hasDiscount &#x3D; true;
+    }
+
+    return {
+      data: { ...body, ...data },
+      returnStatus: true,
+    };
+  }
+
+  @Get(&quot;relatedProducts/:id&quot;)
+  @HttpCode(HttpStatus.OK)
+  async relatedProducts(@Query() query, @Param(&quot;id&quot;) id: number) {
+    let item &#x3D; await this.productsService.findOne({
+      where: { id },
+      select: [&quot;id&quot;, &quot;relatedProductsList&quot;],
+    });
+
+    const ids &#x3D;
+      item.relatedProductsList &amp;&amp;
+      item.relatedProductsList !&#x3D; null &amp;&amp;
+      item.relatedProductsList !&#x3D; &quot;&quot;
+        ? JSON.parse(item.relatedProductsList)
+        : [];
+
+    let data &#x3D; await this.service.find({
+      // relations: [&quot;tags&quot;],
+      where: { id: In(ids) },
+    });
+
+    const nowDate &#x3D; new Date();
+    const discountsList &#x3D; await this.discountsItemsRepository.find({
+      where: {
+        startDate: LessThanOrEqual(nowDate),
+        endDate: MoreThanOrEqual(nowDate),
+        productsId: In(ids),
+      },
+    });
+
+    for (let itm of data) {
+      const xone &#x3D; discountsList.find((el) &#x3D;&gt; el.productsId.id &#x3D;&#x3D; itm.id);
+      itm.hasDiscount &#x3D; false;
+      itm.discount &#x3D; 0;
+      itm.newPrice &#x3D; 0;
+      if (xone) {
+        const value &#x3D; xone.value / 100;
+        const discount &#x3D; itm.price * value;
+        itm.discount &#x3D; xone.value;
+        itm.newPrice &#x3D; itm.price - discount;
+        itm.hasDiscount &#x3D; true;
+      }
+    }
+    return {
+      data,
+      returnStatus: true,
+    };
+  }
+
+  @Get(&quot;topRatedProducts/:id&quot;)
+  @HttpCode(HttpStatus.OK)
+  async topRatedProducts(@Query() query, @Param(&quot;id&quot;) id: number) {
+    let data &#x3D; await this.service.find({
+
+      where: [
+        {
+          id: Not(id),
+        },
+      ],
+      limit: 6,
+    });
+
+    const ids &#x3D; data.map((item) &#x3D;&gt; item.id);
+
+    const nowDate &#x3D; new Date();
+    const discountsList &#x3D; await this.discountsItemsRepository.find({
+      where: {
+        startDate: LessThanOrEqual(nowDate),
+        endDate: MoreThanOrEqual(nowDate),
+        productsId: In(ids),
+      },
+    });
+
+    for (let itm of data) {
+      const xone &#x3D; discountsList.find((el) &#x3D;&gt; el.productsId.id &#x3D;&#x3D; itm.id);
+      itm.hasDiscount &#x3D; false;
+      itm.discount &#x3D; 0;
+      itm.newPrice &#x3D; 0;
+      if (xone) {
+        const value &#x3D; xone.value / 100;
+        const discount &#x3D; itm.price * value;
+        itm.discount &#x3D; xone.value;
+        itm.newPrice &#x3D; itm.price - discount;
+        itm.hasDiscount &#x3D; true;
+      }
+    }
+
+    return {
+      data,
+      returnStatus: true,
+    };
+  }
+
+  BetweenDates &#x3D; (from: Date | string, to: Date | string) &#x3D;&gt;
+    Between(
+      moment(typeof from &#x3D;&#x3D;&#x3D; &quot;string&quot; ? new Date(from) : from).format(
+        &quot;YYYY-MM-DD HH:MM:SS&quot;
+      ),
+      moment(typeof to &#x3D;&#x3D;&#x3D; &quot;string&quot; ? new Date(to) : to).format(
+        &quot;YYYY-MM-DD HH:MM:SS&quot;
+      )
+    );
+
+  @Get(&quot;getIfNotDiscount/:startDate/:endDate&quot;)
+  @HttpCode(HttpStatus.OK)
+  async getIfNotDiscount(
+    @Param(&quot;startDate&quot;) startDate,
+    @Param(&quot;endDate&quot;) endDate
+  ) {
+    let data &#x3D; await this.discountsItemsRepository.find({
+      where: [
+        {
+          startDate: this.BetweenDates(startDate, endDate),
+        },
+        {
+          endDate: this.BetweenDates(startDate, endDate),
+        },
+      ],
+    });
+
+    const ids &#x3D; data.map((item) &#x3D;&gt; item.productsId.id);
+
+    let list &#x3D; await this.service.find({
+      where: {
+        id: Not(In(ids)),
+      },
+    });
+
+    return {
+      data: list,
+      returnStatus: true,
+    };
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProductsController.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

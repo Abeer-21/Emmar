@@ -1,0 +1,2495 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>emmar documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">emmar documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content controller">
+                   <div class="content-data">
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Controllers</li>
+  <li class="breadcrumb-item" >CartsController</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/carts/controllers/carts.controller.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Prefix</h3>
+            </p>
+            <p class="comment">
+                <code>carts</code>
+            </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#createCheckout" >createCheckout</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#delivered" >delivered</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllX" >findAllX</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#fromOffline" >fromOffline</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getMyCart" >getMyCart</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getPaymentTypes" >getPaymentTypes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#inDelivery" >inDelivery</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#shipping" >shipping</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#update" >update</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updatex" >updatex</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#delete" >delete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAll" >findAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOne" >findOne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findOneByRelations" >findOneByRelations</a>
+                            </li>
+                            <li>
+                                <a href="#getTrans" >getTrans</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#search" >search</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>create(user, body: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post()<br />@UseGuards(undefined)<br />@ApiCreatedResponse({description: &#x27;The record has been successfully created.&#x27;, type: Carts})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/modules/carts/controllers/carts.controller.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createCheckout"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>createCheckout</b></span>
+                        <a href="#createCheckout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createCheckout(body: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;createCheckout&#x27;)<br />@ApiCreatedResponse({description: &#x27;The record has been successfully updated.&#x27;, type: Carts})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="307"
+                                    class="link-to-prism">src/modules/carts/controllers/carts.controller.ts:307</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="delivered"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>delivered</b></span>
+                        <a href="#delivered"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>delivered(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;delivered/:id&#x27;)<br />@UseGuards(undefined)<br />@ApiCreatedResponse({description: &#x27;The record&#x27;})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="507"
+                                    class="link-to-prism">src/modules/carts/controllers/carts.controller.ts:507</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllX"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAllX</b></span>
+                        <a href="#findAllX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllX(query, user)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br />@UseGuards(undefined)<br />@HttpCode(HttpStatus.OK)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/modules/carts/controllers/carts.controller.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>query</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>user</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fromOffline"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>fromOffline</b></span>
+                        <a href="#fromOffline"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fromOffline(user, body: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;fromOffline&#x27;)<br />@ApiCreatedResponse({description: &#x27;The record has been successfully created.&#x27;, type: Carts})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="647"
+                                    class="link-to-prism">src/modules/carts/controllers/carts.controller.ts:647</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMyCart"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>getMyCart</b></span>
+                        <a href="#getMyCart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getMyCart(user)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;getMyCart&#x27;)<br />@UseGuards(undefined)<br />@ApiCreatedResponse({description: &#x27;The record&#x27;})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="419"
+                                    class="link-to-prism">src/modules/carts/controllers/carts.controller.ts:419</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPaymentTypes"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>getPaymentTypes</b></span>
+                        <a href="#getPaymentTypes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getPaymentTypes(amount: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;getPaymentTypes/:amount&#x27;)<br />@UseGuards(undefined)<br />@ApiCreatedResponse({description: &#x27;The record has been successfully updated.&#x27;, type: Carts})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="297"
+                                    class="link-to-prism">src/modules/carts/controllers/carts.controller.ts:297</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>amount</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inDelivery"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>inDelivery</b></span>
+                        <a href="#inDelivery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>inDelivery(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;inDelivery/:id&#x27;)<br />@UseGuards(undefined)<br />@ApiCreatedResponse({description: &#x27;The record&#x27;})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="483"
+                                    class="link-to-prism">src/modules/carts/controllers/carts.controller.ts:483</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shipping"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>shipping</b></span>
+                        <a href="#shipping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>shipping(body: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, user)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;shipping/:id&#x27;)<br />@UseGuards(undefined)<br />@ApiCreatedResponse({description: &#x27;The record&#x27;})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="439"
+                                    class="link-to-prism">src/modules/carts/controllers/carts.controller.ts:439</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(user, body: <a href="../classes/Carts.html" target="_self">Carts</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Put()<br />@UseGuards(undefined)<br />@ApiCreatedResponse({description: &#x27;The record has been successfully updated.&#x27;, type: Carts})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="230"
+                                    class="link-to-prism">src/modules/carts/controllers/carts.controller.ts:230</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="../classes/Carts.html" target="_self" >Carts</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatex"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>updatex</b></span>
+                        <a href="#updatex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updatex(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, body)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;update/:id&#x27;)<br />@UseGuards(undefined)<br />@ApiCreatedResponse({description: &#x27;The record&#x27;})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="626"
+                                    class="link-to-prism">src/modules/carts/controllers/carts.controller.ts:626</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="delete"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>delete</b></span>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>delete(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Delete(&#x27;:id&#x27;)<br />@UseGuards(undefined)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseController.html" target="_self" >BaseController</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseController.html#source" target="_self" >BaseController:91</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAll"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAll(query, req)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br />@HttpCode(HttpStatus.OK)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseController.html" target="_self" >BaseController</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseController.html#source" target="_self" >BaseController:28</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>query</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>req</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOne"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findOne</b></span>
+                        <a href="#findOne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOne(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;:id&#x27;)<br />@HttpCode(HttpStatus.OK)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseController.html" target="_self" >BaseController</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseController.html#source" target="_self" >BaseController:71</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findOneByRelations"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>findOneByRelations</b></span>
+                        <a href="#findOneByRelations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findOneByRelations(body)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;findOne&#x27;)<br />@HttpCode(HttpStatus.OK)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseController.html" target="_self" >BaseController</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseController.html#source" target="_self" >BaseController:81</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>body</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTrans"></a>
+                    <span class="name">
+                        <span ><b>getTrans</b></span>
+                        <a href="#getTrans"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTrans(key, req)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseController.html" target="_self" >BaseController</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseController.html#source" target="_self" >BaseController:99</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>req</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="search"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>search</b></span>
+                        <a href="#search"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>search(body, options)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;search&#x27;)<br />@HttpCode(HttpStatus.OK)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseController.html" target="_self" >BaseController</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseController.html#source" target="_self" >BaseController:39</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>body</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { UserInfo } from &quot;../../../common/decorator/user.decorator&quot;;
+import {
+  Controller,
+  Post,
+  Body,
+  Put,
+  Param,
+  UseGuards,
+  UseFilters,
+  Req,
+  Get,
+  HttpException,
+  HttpStatus,
+  HttpCode,
+  Query,
+} from &quot;@nestjs/common&quot;;
+import { Carts } from &quot;../dto/carts.dto&quot;;
+import { CartsService } from &quot;../services/carts.service&quot;;
+
+import { AuthGuard } from &quot;@nestjs/passport&quot;;
+import { BaseController } from &quot;src/common/base/baseController.controller&quot;;
+import { HttpExceptionFilter } from &quot;src/common/filter/http-exception.filter&quot;;
+import { ApiCreatedResponse, ApiTags } from &quot;@nestjs/swagger&quot;;
+import { TamaraClientFactory } from &quot;tamara-sdk&quot;;
+import * as tamaraconfig from &quot;../../../common/json/tamara.json&quot;;
+import { InjectRepository } from &quot;@nestjs/typeorm&quot;;
+import { ProductsEntity } from &quot;src/modules/products/entity/products.entity&quot;;
+import { LessThanOrEqual, MoreThanOrEqual, Repository } from &quot;typeorm&quot;;
+import { CartItemsService } from &quot;../services/cart_items.service&quot;;
+import * as SmsaExpress from &quot;src/common/helpers/smsaexpress&quot;;
+import * as DhlExpress from &quot;src/common/helpers/dhlexpress&quot;;
+import { sendEmail } from &quot;src/common/helpers/email&quot;;
+import * as moment from &quot;moment&quot;;
+import { createPdf } from &quot;src/common/helpers/ejs_to_pdf&quot;;
+import { resolve } from &quot;path&quot;;
+
+import { toArabicWord } from &quot;number-to-arabic-words/dist/index-node.js&quot;;
+
+import { DiscountsItemsEntity } from &quot;src/modules/products/entity/discountsItems.entity&quot;;
+import { Invoice } from &quot;@axenda/zatca&quot;;
+
+@ApiTags(&quot;Carts&quot;)
+@Controller(&quot;carts&quot;)
+@UseFilters(HttpExceptionFilter)
+export class CartsController extends BaseController {
+  constructor(
+    public readonly cartsService: CartsService,
+
+    public readonly cartItemsService: CartItemsService,
+    @InjectRepository(ProductsEntity)
+    private readonly productsRepository: Repository&lt;ProductsEntity&gt;,
+
+    @InjectRepository(DiscountsItemsEntity)
+    private readonly discountsItemsRepository: Repository&lt;DiscountsItemsEntity&gt;
+  ) {
+    super(cartsService);
+  }
+
+  @Get()
+  @UseGuards(AuthGuard(&quot;jwt&quot;))
+  @HttpCode(HttpStatus.OK)
+  async findAllX(@Query() query, @UserInfo() user) {
+    let data &#x3D; await this.service.find({
+      where: {
+        usersId: user.id,
+        done: true,
+      },
+    });
+    return {
+      data,
+      returnStatus: true,
+    };
+  }
+
+  @Post()
+  @UseGuards(AuthGuard(&quot;jwt&quot;))
+  @ApiCreatedResponse({
+    description: &quot;The record has been successfully created.&quot;,
+    type: Carts,
+  })
+  async create(@UserInfo() user, @Body() body: any) {
+    let cart &#x3D; await this.cartsService.findOne({
+      usersId: user.id,
+      done: false,
+    });
+    if (cart) {
+      const one &#x3D; cart.cartItemsList.find(
+        (el) &#x3D;&gt; el.productsId.id &#x3D;&#x3D; body.productsId
+      );
+      if (one) {
+        const quantity &#x3D; one.quantity + body.quantity;
+
+        const nowDate &#x3D; new Date();
+        const xone &#x3D; await this.discountsItemsRepository.findOne({
+          where: {
+            startDate: LessThanOrEqual(nowDate),
+            endDate: MoreThanOrEqual(nowDate),
+            productsId: body.productsId,
+          },
+        });
+        let price &#x3D; one.productsId.price;
+
+        if (xone) {
+          const value &#x3D; xone.value / 100;
+          const discount &#x3D; Number(price) * value;
+          price &#x3D; Number(price) - discount;
+        }
+        const total &#x3D; Number(price) * quantity;
+        await this.cartItemsService.updateById(one.id, {
+          quantity,
+          price,
+          total,
+        });
+      } else {
+        const product &#x3D; await this.productsRepository.findOne(body.productsId);
+
+        if (!product) {
+          throw new HttpException(
+            &quot;product not found&quot;,
+            HttpStatus.METHOD_NOT_ALLOWED
+          );
+        }
+
+        body.price &#x3D; product.price;
+
+        body.total &#x3D; Number(product.price) * body.quantity;
+
+        const nowDate &#x3D; new Date();
+        const xone &#x3D; await this.discountsItemsRepository.findOne({
+          where: {
+            startDate: LessThanOrEqual(nowDate),
+            endDate: MoreThanOrEqual(nowDate),
+            productsId: body.productsId,
+          },
+        });
+
+        if (xone) {
+          const value &#x3D; xone.value / 100;
+          const discount &#x3D; Number(product.price) * value;
+          body.price &#x3D; Number(product.price) - discount;
+          body.total &#x3D; Number(body.price) * body.quantity;
+        }
+
+        await this.cartItemsService.create({
+          quantity: body.quantity,
+          productsId: body.productsId,
+          cartsId: cart.id,
+          total: body.total,
+          price: body.price,
+        });
+      }
+
+      let cart2 &#x3D; await this.cartsService.findOne({
+        usersId: user.id,
+        done: false,
+      });
+      let ztotal &#x3D; 0;
+      for (const itm of cart2.cartItemsList) {
+        ztotal &#x3D; ztotal + Number(itm.total);
+      }
+
+      let couponsValue &#x3D; 0;
+
+      if (cart2.couponsId) {
+        if (cart2.couponsId.discountType &#x3D;&#x3D; &quot;value&quot;) {
+          couponsValue &#x3D; cart2.couponsId.value;
+        }
+        if (cart2.couponsId.discountType &#x3D;&#x3D; &quot;percenting&quot;) {
+          couponsValue &#x3D; Number(ztotal) * (cart2.couponsId.value / 100);
+        }
+      }
+
+      const fineltotal &#x3D; Number(ztotal) - Number(couponsValue);
+
+      await this.cartsService.updateById(cart2.id, {
+        couponsValue,
+        total: fineltotal,
+      });
+
+      return {
+        data: await { ...cart2, total: ztotal },
+        returnStatus: true,
+      };
+    } else {
+      body.total &#x3D; 0;
+
+      const product &#x3D; await this.productsRepository.findOne(body.productsId);
+      if (!product) {
+        throw new HttpException(
+          &quot;product not found&quot;,
+          HttpStatus.METHOD_NOT_ALLOWED
+        );
+      }
+      body.price &#x3D; product.price;
+      body.total &#x3D; product.price * body.quantity;
+
+      const nowDate &#x3D; new Date();
+      const xone &#x3D; await this.discountsItemsRepository.findOne({
+        where: {
+          startDate: LessThanOrEqual(nowDate),
+          endDate: MoreThanOrEqual(nowDate),
+          productsId: body.productsId,
+        },
+      });
+
+      if (xone) {
+        const value &#x3D; xone.value / 100;
+        const discount &#x3D; Number(product.price) * value;
+        body.price &#x3D; Number(product.price) - discount;
+        body.total &#x3D; Number(body.price) * body.quantity;
+      }
+
+      return {
+        data: await this.cartsService.create({
+          total: body.total,
+          cartItemsList: [body],
+          usersId: user.id,
+        }),
+        returnStatus: true,
+      };
+    }
+  }
+
+  @Put()
+  @UseGuards(AuthGuard(&quot;jwt&quot;))
+  @ApiCreatedResponse({
+    description: &quot;The record has been successfully updated.&quot;,
+    type: Carts,
+  })
+  async update(@UserInfo() user, @Body() body: Carts) {
+    console.log(&#x27;ddddddddddddd&#x27;)
+    const cart &#x3D; await this.cartsService.findOne({
+      usersId: user.id,
+      done: false,
+    });
+    delete body.cartItemsList;
+    delete body.usersId;
+    delete body.total;
+
+    let couponsValue &#x3D; 0;
+
+    if (cart.couponsId) {
+      if (cart.couponsId.discountType &#x3D;&#x3D; &quot;value&quot;) {
+        couponsValue &#x3D;Number( cart.couponsId.value);
+      }
+      if (cart.couponsId.discountType &#x3D;&#x3D; &quot;percenting&quot;) {
+        couponsValue &#x3D; Number(cart.total) * (Number(cart.couponsId.value) / 100);
+      }
+    }
+
+    const total &#x3D; Number(cart.total) - Number(couponsValue);
+    console.log({ ...body, total })
+    await this.cartsService.updateById(cart.id, { ...body, total });
+    const one &#x3D; await this.cartsService.findById(cart.id);
+
+    if (body.done &#x3D;&#x3D; true) {
+      // sendEmail({
+      //   to: one.usersId?.email,
+      //   templateName: &quot;orderCreated&quot;,
+      //   templateLang: &quot;ar&quot;,
+      //   templateData: {
+      //     name:
+      //       one.usersId &amp;&amp; one.usersId.name
+      //         ? one.usersId.name
+      //         : one.usersId?.email,
+      //     date: moment(new Date()).format(&quot;DD/MM/YYYY&quot;),
+      //     orderId: one.id,
+      //     itemsList: one.cartItemsList,
+      //     shippingMethodsId: one.shippingMethodsId,
+      //     shippingPrice: one.shippingPrice,
+      //     subTotal: one.cartItemsList
+      //       .map((cartItem) &#x3D;&gt; cartItem.total)
+      //       .reduce((a, b) &#x3D;&gt; a + b, 0),
+      //     total: one.total,
+      //     paymentMethod: one.paymentMethod,
+      //     addressName:
+      //       one.addressesId?.firstName + &quot; &quot; + one.addressesId?.lastName,
+      //     addressInfo: one.addressesId?.address,
+      //     addressApartment: one.addressesId?.apartment,
+      //     addressCity: one.addressesId?.govesId?.name,
+      //     addressGov: one.addressesId?.citiesId?.name,
+      //     addressZip: one.addressesId?.zip,
+      //     addressPhone: one.addressesId?.phone,
+      //     addressEmail: one.addressesId?.email,
+      //   },
+      // });
+    }
+    return one;
+  }
+
+  @Get(&quot;getPaymentTypes/:amount&quot;)
+  @UseGuards(AuthGuard(&quot;jwt&quot;))
+  @ApiCreatedResponse({
+    description: &quot;The record has been successfully updated.&quot;,
+    type: Carts,
+  })
+  async getPaymentTypes(@Param(&quot;amount&quot;) amount: number) {
+    const client &#x3D; await TamaraClientFactory.createApiClient(tamaraconfig);
+    return await client.getPaymentTypes(&quot;SA&quot;, { currency: &quot;SAR&quot;, amount });
+  }
+
+  @Post(&quot;createCheckout&quot;)
+  @ApiCreatedResponse({
+    description: &quot;The record has been successfully updated.&quot;,
+    type: Carts,
+  })
+  async createCheckout(@Body() body: any) {
+    const client &#x3D; await TamaraClientFactory.createApiClient(tamaraconfig);
+
+    const cart &#x3D; await this.cartsService.findById(body.cartsId);
+
+    if (!cart) {
+      throw new HttpException(&quot;cart not create&quot;, HttpStatus.METHOD_NOT_ALLOWED);
+    }
+
+    const items &#x3D; [];
+
+    for (const item of cart.cartItemsList) {
+      items.push({
+        reference_id: item.id,
+        type: &quot;physical&quot;,
+        name: item.productsId.name,
+        sku: item.productsId.barcode,
+        image_url:
+          &quot;http://185.209.228.137:4000/uploads/&quot; + item.productsId.images
+            ? JSON.parse(item.productsId.images)[0]
+            : &quot;http://maherjewellery.masrhosting.com/assets/images/logo/logo-icon.svg&quot;,
+        item_url:
+          &quot;http://maherjewellery.masrhosting.com/product/&quot; + item.productsId.id,
+        quantity: item.quantity,
+        unit_price: {
+          amount: item.productsId.price,
+          currency: &quot;SAR&quot;,
+        },
+        total_amount: {
+          amount: item.total,
+          currency: &quot;SAR&quot;,
+        },
+      });
+    }
+
+    const data: any &#x3D; {
+      order_reference_id: cart.id,
+      total_amount: {
+        amount: cart.total,
+        currency: &quot;SAR&quot;,
+      },
+      description: &quot;From WebSite&quot;,
+      country_code: &quot;SA&quot;,
+      payment_type: body.payment_type, // PAY_BY_INSTALMENTS || PAY_NOW
+      instalments: body.instalments ? body.instalments : null, // if use PAY_BY_INSTALMENTS
+      locale: body.locale ? body.locale : &quot;ar_SA&quot;, // en_US or ar_SA
+      items,
+      consumer: {
+        first_name: cart.addressesId?.firstName,
+        last_name: cart.addressesId?.lastName,
+        phone_number: cart.addressesId?.phone,
+        email: cart.addressesId?.email,
+      },
+      billing_address: {
+        first_name: &quot;Mona&quot;,
+        last_name: &quot;Lisa&quot;,
+        line1: &quot;3764 Al Urubah Rd&quot;,
+        line2: &quot;string&quot;,
+        region: &quot;As Sulimaniyah&quot;,
+        postal_code: &quot;12345&quot;,
+        city: &quot;Riyadh&quot;,
+        country_code: &quot;SA&quot;,
+        phone_number: &quot;502223333&quot;,
+      },
+      shipping_address: {
+        first_name: &quot;Mona&quot;,
+        last_name: &quot;Lisa&quot;,
+        line1: &quot;3764 Al Urubah Rd&quot;,
+        line2: &quot;string&quot;,
+        region: &quot;As Sulimaniyah&quot;,
+        postal_code: &quot;12345&quot;,
+        city: &quot;Riyadh&quot;,
+        country_code: &quot;SA&quot;,
+        phone_number: &quot;502223333&quot;,
+      },
+      shipping_amount: {
+        amount: cart.shippingPrice, //if use
+        currency: &quot;SAR&quot;,
+      },
+      merchant_url: {
+        success:
+          &quot;http://maherjewellery.masrhosting.com/checkout/order-received/&quot; +
+          cart.id,
+        failure: &quot;http://maherjewellery.masrhosting.com/checkout/failure&quot;,
+        cancel: &quot;http://maherjewellery.masrhosting.com/checkout/cancel&quot;,
+        notification: &quot;https://maherjewellery.com.sa/payments/tamarapay&quot;,
+      },
+      platform: &quot;WebSite&quot;,
+      expires_in_minutes: 0,
+      additional_data: {
+        delivery_method: cart.shippingMethod,
+      },
+      tax_amount: {
+        amount: &quot;0.00&quot;,
+        currency: &quot;SAR&quot;,
+      },
+    };
+    const one &#x3D; await client.createCheckout(data);
+
+    await this.cartsService.updateById(cart.id, {
+      order_id: one.data?.orderId,
+      checkout_id: one.data?.checkoutId,
+    });
+
+    return one;
+  }
+
+  @Get(&quot;getMyCart&quot;)
+  @UseGuards(AuthGuard(&quot;jwt&quot;))
+  @ApiCreatedResponse({
+    description: &quot;The record&quot;,
+  })
+  async getMyCart(@UserInfo() user) {
+    const one &#x3D; await await this.cartsService.findOne({
+      usersId: user.id,
+      done: false,
+    });
+    if (one) {
+      return await one;
+    } else {
+      return {
+        data: &quot;cart not found&quot;,
+        returnStatus: false,
+      };
+    }
+  }
+
+  @Post(&quot;shipping/:id&quot;)
+  @UseGuards(AuthGuard(&quot;jwt&quot;))
+  @ApiCreatedResponse({
+    description: &quot;The record&quot;,
+  })
+  async shipping(@Body() body: any, @Param(&quot;id&quot;) id: number, @UserInfo() user) {
+    const cart &#x3D; await this.cartsService.findOne({
+      id: id,
+      done: true,
+      // orderStatus: &quot;shipping&quot;,
+    });
+    if (!cart) {
+      throw new HttpException(
+        &quot;cart not found or not done&quot;,
+        HttpStatus.METHOD_NOT_ALLOWED
+      );
+    } else {
+      for (const item of cart.cartItemsList) {
+        await this.productsRepository.decrement(
+          item.productsId,
+          &quot;quantity&quot;,
+          item.quantity
+        );
+      }
+
+      let obj: any &#x3D; {
+        orderStatus: &quot;shipping&quot;,
+      };
+
+      // if (cart.shippingMethodsId) {
+      // const x &#x3D; await SmsaExpress.addShip(body, cart, user);
+      // console.log(&#x27;x&#x27;,x)
+      // obj.smsaexpressNo &#x3D; x.data?.awbNo;
+      // }
+
+      // const y &#x3D; await DhlExpress.addShip(body, cart, user);
+      // console.log(&quot;y&quot;, y);
+
+      await this.cartsService.updateById(id, obj);
+    }
+
+    return { data: &quot;Done&quot;, returnStatus: false };
+  }
+
+  @Post(&quot;inDelivery/:id&quot;)
+  @UseGuards(AuthGuard(&quot;jwt&quot;))
+  @ApiCreatedResponse({
+    description: &quot;The record&quot;,
+  })
+  async inDelivery(@Param(&quot;id&quot;) id: number) {
+    const cart &#x3D; await this.cartsService.findOne({
+      id: id,
+      done: true,
+    });
+    if (!cart) {
+      throw new HttpException(
+        &quot;cart not found or not done&quot;,
+        HttpStatus.METHOD_NOT_ALLOWED
+      );
+    } else {
+      await this.cartsService.updateById(id, {
+        orderStatus: &quot;inDelivery&quot;,
+      });
+    }
+
+    return { data: &quot;Done&quot;, returnStatus: false };
+  }
+
+  @Post(&quot;delivered/:id&quot;)
+  @UseGuards(AuthGuard(&quot;jwt&quot;))
+  @ApiCreatedResponse({
+    description: &quot;The record&quot;,
+  })
+  async delivered(@Param(&quot;id&quot;) id: number) {
+    const one &#x3D; await this.cartsService.findOne({
+      id: id,
+      done: true,
+    });
+    if (!one) {
+      throw new HttpException(
+        &quot;cart not found or not done&quot;,
+        HttpStatus.METHOD_NOT_ALLOWED
+      );
+    } else {
+      await this.cartsService.updateById(id, {
+        orderStatus: &quot;delivered&quot;,
+      });
+
+      const subTotal &#x3D; one.cartItemsList
+        .map((cartItem) &#x3D;&gt; cartItem.total)
+        .reduce((a, b) &#x3D;&gt; a + b, 0);
+
+      const vat &#x3D; subTotal * 0.15;
+
+      let paymentMethod &#x3D; one.paymentMethod ? &quot;تحويل&quot; : &quot;تمارا&quot;;
+
+      const NumbersToArabicWords &#x3D; await toArabicWord(Number(one.total));
+
+      const invoice &#x3D; new Invoice({
+        sellerName: &quot;شركة مجوهرات ماهر&quot;,
+        vatRegistrationNumber: &quot;310246374900003&quot;,
+        invoiceTimestamp: moment(new Date()).format(),
+        invoiceTotal: String(one.total),
+        invoiceVatTotal: String(vat),
+      });
+
+      const qrTag &#x3D; await invoice.render();
+
+      createPdf(
+        &quot;invoice&quot;,
+        {
+          landscape: true,
+        },
+        {
+          qrTag,
+          NumbersToArabicWords,
+          name:
+            one.usersId &amp;&amp; one.usersId.name
+              ? one.usersId.name
+              : one.usersId?.email,
+          date: moment(new Date()).format(&quot;DD/MM/YYYY&quot;),
+          orderId: one.id,
+          itemsList: one.cartItemsList,
+          shippingMethodsId: one.shippingMethodsId,
+          shippingPrice: one.shippingPrice,
+          subTotal,
+          tax: vat,
+          total: one.total,
+          paymentMethod,
+          addressName:
+            one.addressesId?.firstName + &quot; &quot; + one.addressesId?.lastName,
+          addressInfo: one.addressesId?.address,
+          addressApartment: one.addressesId?.apartment,
+          addressCity: one.addressesId?.govesId?.name,
+          addressGov: one.addressesId?.citiesId?.name,
+          addressZip: one.addressesId?.zip,
+          addressPhone: one.addressesId?.phone,
+          addressEmail: one.addressesId?.email,
+        }
+      ).then(async (e) &#x3D;&gt; {
+        await this.cartsService.updateById(id, {
+          pdfInvoice: e,
+        });
+
+        sendEmail({
+          to: one.usersId?.email,
+          templateName: &quot;invoice&quot;,
+          templateLang: &quot;ar&quot;,
+          templateData: {
+            qrTag,
+            NumbersToArabicWords,
+            name:
+              one.usersId &amp;&amp; one.usersId.name
+                ? one.usersId.name
+                : one.usersId?.email,
+            date: moment(new Date()).format(&quot;DD/MM/YYYY&quot;),
+            orderId: one.id,
+            itemsList: one.cartItemsList,
+            shippingMethodsId: one.shippingMethodsId,
+            shippingPrice: one.shippingPrice,
+            subTotal,
+            tax: vat,
+            total: one.total,
+            paymentMethod: one.paymentMethod,
+            addressName:
+              one.addressesId?.firstName + &quot; &quot; + one.addressesId?.lastName,
+            addressInfo: one.addressesId?.address,
+            addressApartment: one.addressesId?.apartment,
+            addressCity: one.addressesId?.govesId?.name,
+            addressGov: one.addressesId?.citiesId?.name,
+            addressZip: one.addressesId?.zip,
+            addressPhone: one.addressesId?.phone,
+            addressEmail: one.addressesId?.email,
+          },
+          attachments: [
+            {
+              filename: e,
+              path: resolve(&quot;pdf&quot;, e),
+            },
+          ],
+        });
+      });
+    }
+
+    return { data: &quot;Done&quot;, returnStatus: false };
+  }
+
+  @Post(&quot;update/:id&quot;)
+  @UseGuards(AuthGuard(&quot;jwt&quot;))
+  @ApiCreatedResponse({
+    description: &quot;The record&quot;,
+  })
+  async updatex(@Param(&quot;id&quot;) id: number, @Body() body) {
+    const cart &#x3D; await this.cartsService.findOne({
+      id: id,
+    });
+    if (!cart) {
+      throw new HttpException(
+        &quot;cart not found or not done&quot;,
+        HttpStatus.METHOD_NOT_ALLOWED
+      );
+    } else {
+      await this.cartsService.updateById(id, body);
+    }
+
+    return { data: &quot;Done&quot;, returnStatus: false };
+  }
+
+  @Post(&quot;fromOffline&quot;)
+  @ApiCreatedResponse({
+    description: &quot;The record has been successfully created.&quot;,
+    type: Carts,
+  })
+  async fromOffline(@UserInfo() user, @Body() body: any) {
+    for (const item of body.cartItemsList) {
+      const product &#x3D; await this.productsRepository.findOne(item.productsId);
+      if (!product) {
+        throw new HttpException(
+          &quot;product not found&quot;,
+          HttpStatus.METHOD_NOT_ALLOWED
+        );
+      }
+    }
+    const d &#x3D; await this.cartsService.create({
+      ...body,
+      usersId: 8,
+    });
+    const one &#x3D; await this.cartsService.findById(d.id);
+
+    sendEmail({
+      to: one.addressesId?.email,
+      templateName: &quot;orderCreated&quot;,
+      templateLang: &quot;ar&quot;,
+      templateData: {
+        name: one.addressesId?.firstName + &quot; &quot; + one.addressesId?.lastName,
+        date: moment(new Date()).format(&quot;DD/MM/YYYY&quot;),
+        orderId: one.id,
+        itemsList: one.cartItemsList,
+        shippingMethodsId: one.shippingMethodsId,
+        shippingPrice: one.shippingPrice,
+        subTotal: one.cartItemsList
+          .map((cartItem) &#x3D;&gt; cartItem.total)
+          .reduce((a, b) &#x3D;&gt; a + b, 0),
+        total: one.total,
+        paymentMethod: one.paymentMethod,
+        addressName:
+          one.addressesId?.firstName + &quot; &quot; + one.addressesId?.lastName,
+        addressInfo: one.addressesId?.address,
+        addressApartment: one.addressesId?.apartment,
+        addressCity: one.addressesId?.govesId?.name,
+        addressGov: one.addressesId?.citiesId?.name,
+        addressZip: one.addressesId?.zip,
+        addressPhone: one.addressesId?.phone,
+        addressEmail: one.addressesId?.email,
+      },
+    });
+    return {
+      data: one,
+      returnStatus: true,
+    };
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'CartsController.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

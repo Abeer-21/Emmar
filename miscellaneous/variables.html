@@ -1,0 +1,1487 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>emmar documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">emmar documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#addShip" title="src/common/helpers/dhlexpress.ts" ><b>addShip</b>&nbsp;&nbsp;&nbsp;(src/.../dhlexpress.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#addShip" title="src/common/helpers/smsaexpress.ts" ><b>addShip</b>&nbsp;&nbsp;&nbsp;(src/.../smsaexpress.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#cors" title="src/main.ts" ><b>cors</b>&nbsp;&nbsp;&nbsp;(src/.../main.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createPdf" title="src/common/helpers/ejs_to_pdf.ts" ><b>createPdf</b>&nbsp;&nbsp;&nbsp;(src/.../ejs_to_pdf.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EmailConfig" title="src/common/helpers/email.ts" ><b>EmailConfig</b>&nbsp;&nbsp;&nbsp;(src/.../email.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#fs" title="src/common/helpers/ejs_to_pdf.ts" ><b>fs</b>&nbsp;&nbsp;&nbsp;(src/.../ejs_to_pdf.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getTransByKey" title="src/common/helpers/i18n.ts" ><b>getTransByKey</b>&nbsp;&nbsp;&nbsp;(src/.../i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#langConfig" title="src/common/helpers/email.ts" ><b>langConfig</b>&nbsp;&nbsp;&nbsp;(src/.../email.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#langObject" title="src/common/helpers/i18n.ts" ><b>langObject</b>&nbsp;&nbsp;&nbsp;(src/.../i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#puppeteer" title="src/common/helpers/ejs_to_pdf.ts" ><b>puppeteer</b>&nbsp;&nbsp;&nbsp;(src/.../ejs_to_pdf.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#sendEmail" title="src/common/helpers/email.ts" ><b>sendEmail</b>&nbsp;&nbsp;&nbsp;(src/.../email.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SendEmail" title="src/common/helpers/email.ts" ><b>SendEmail</b>&nbsp;&nbsp;&nbsp;(src/.../email.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#transporter" title="src/common/helpers/email.ts" ><b>transporter</b>&nbsp;&nbsp;&nbsp;(src/.../email.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#uploadImage" title="src/common/helpers/methods.ts" ><b>uploadImage</b>&nbsp;&nbsp;&nbsp;(src/.../methods.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#uploadImageBuffer" title="src/common/helpers/methods.ts" ><b>uploadImageBuffer</b>&nbsp;&nbsp;&nbsp;(src/.../methods.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#uploadImageX" title="src/common/helpers/methods.ts" ><b>uploadImageX</b>&nbsp;&nbsp;&nbsp;(src/.../methods.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#uploadListImageBuffer" title="src/common/helpers/methods.ts" ><b>uploadListImageBuffer</b>&nbsp;&nbsp;&nbsp;(src/.../methods.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#uploadPdf" title="src/common/helpers/methods.ts" ><b>uploadPdf</b>&nbsp;&nbsp;&nbsp;(src/.../methods.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#uploadVideo" title="src/common/helpers/methods.ts" ><b>uploadVideo</b>&nbsp;&nbsp;&nbsp;(src/.../methods.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UserInfo" title="src/common/decorator/user.decorator.ts" ><b>UserInfo</b>&nbsp;&nbsp;&nbsp;(src/.../user.decorator.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/common/helpers/dhlexpress.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addShip"></a>
+                    <span class="name">
+                        <span ><b>addShip</b></span>
+                        <a href="#addShip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (body: any, cart, user) &#x3D;&gt; {
+  try {
+    const data &#x3D; {
+      plannedShippingDateAndTime: new Date(),
+      pickup: {
+        isRequested: false,
+        closeTime: &quot;18:00&quot;,
+        location: &quot;reception&quot;,
+        specialInstructions: [
+          { value: &quot;please ring door bell&quot;, typeCode: &quot;TBD&quot; },
+        ],
+        pickupDetails: {
+          postalAddress: {
+            postalCode: &quot;14800&quot;,
+            cityName: &quot;Prague&quot;,
+            countryCode: &quot;CZ&quot;,
+            provinceCode: &quot;CZ&quot;,
+            addressLine1: &quot;V Parku 2308/10&quot;,
+            addressLine2: &quot;addres2&quot;,
+            addressLine3: &quot;addres3&quot;,
+            countyName: &quot;Central Bohemia&quot;,
+            provinceName: &quot;Central Bohemia&quot;,
+            countryName: &quot;Czech Republic&quot;,
+          },
+          contactInformation: {
+            email: &quot;that@before.de&quot;,
+            phone: &quot;+1123456789&quot;,
+            mobilePhone: &quot;+60112345678&quot;,
+            companyName: &quot;Company Name&quot;,
+            fullName: &quot;John Brew&quot;,
+          },
+          registrationNumbers: [
+            { typeCode: &quot;VAT&quot;, number: &quot;CZ123456789&quot;, issuerCountryCode: &quot;CZ&quot; },
+          ],
+          bankDetails: [
+            {
+              name: &quot;Russian Bank Name&quot;,
+              settlementLocalCurrency: &quot;RUB&quot;,
+              settlementForeignCurrency: &quot;USD&quot;,
+            },
+          ],
+          typeCode: &quot;business&quot;,
+        },
+        pickupRequestorDetails: {
+          postalAddress: {
+            postalCode: &quot;14800&quot;,
+            cityName: &quot;Prague&quot;,
+            countryCode: &quot;CZ&quot;,
+            provinceCode: &quot;CZ&quot;,
+            addressLine1: &quot;V Parku 2308/10&quot;,
+            addressLine2: &quot;addres2&quot;,
+            addressLine3: &quot;addres3&quot;,
+            countyName: &quot;Central Bohemia&quot;,
+            provinceName: &quot;Central Bohemia&quot;,
+            countryName: &quot;Czech Republic&quot;,
+          },
+          contactInformation: {
+            email: &quot;that@before.de&quot;,
+            phone: &quot;+1123456789&quot;,
+            mobilePhone: &quot;+60112345678&quot;,
+            companyName: &quot;Company Name&quot;,
+            fullName: &quot;John Brew&quot;,
+          },
+          registrationNumbers: [
+            { typeCode: &quot;VAT&quot;, number: &quot;CZ123456789&quot;, issuerCountryCode: &quot;CZ&quot; },
+          ],
+          bankDetails: [
+            {
+              name: &quot;Russian Bank Name&quot;,
+              settlementLocalCurrency: &quot;RUB&quot;,
+              settlementForeignCurrency: &quot;USD&quot;,
+            },
+          ],
+          typeCode: &quot;business&quot;,
+        },
+      },
+      productCode: &quot;D&quot;,
+      localProductCode: &quot;D&quot;,
+      getRateEstimates: false,
+      accounts: [{ typeCode: &quot;shipper&quot;, number: &quot;123456789&quot; }],
+      valueAddedServices: [
+        {
+          serviceCode: &quot;II&quot;,
+          value: 100,
+          currency: &quot;GBP&quot;,
+          method: &quot;cash&quot;,
+          dangerousGoods: [
+            {
+              contentId: &quot;908&quot;,
+              dryIceTotalNetWeight: 12,
+              customDescription:
+                &quot;1 package Lithium ion batteries in compliance with Section II of P.I. 9661&quot;,
+              unCodes: [1234],
+            },
+          ],
+        },
+      ],
+      outputImageProperties: {
+        printerDPI: 300,
+        customerBarcodes: [
+          {
+            content: &quot;barcode content&quot;,
+            textBelowBarcode: &quot;text below barcode&quot;,
+            symbologyCode: &quot;93&quot;,
+          },
+        ],
+        customerLogos: [{ fileFormat: &quot;PNG&quot;, content: &quot;base64 encoded image&quot; }],
+        encodingFormat: &quot;pdf&quot;,
+        imageOptions: [
+          {
+            typeCode: &quot;label&quot;,
+            templateName: &quot;ECOM26_84_001&quot;,
+            isRequested: true,
+            hideAccountNumber: false,
+            numberOfCopies: 1,
+            invoiceType: &quot;commercial&quot;,
+            languageCode: &quot;eng&quot;,
+            languageCountryCode: &quot;br&quot;,
+            encodingFormat: &quot;png&quot;,
+            renderDHLLogo: false,
+            fitLabelsToA4: false,
+            labelFreeText: &quot;string&quot;,
+            labelCustomerDataText: &quot;string&quot;,
+          },
+        ],
+        splitTransportAndWaybillDocLabels: true,
+        allDocumentsInOneImage: true,
+        splitDocumentsByPages: true,
+        splitInvoiceAndReceipt: true,
+        receiptAndLabelsInOneImage: true,
+      },
+      customerReferences: [{ value: &quot;Customer reference&quot;, typeCode: &quot;CU&quot; }],
+      identifiers: [
+        { typeCode: &quot;shipmentId&quot;, value: &quot;1234567890&quot;, dataIdentifier: &quot;00&quot; },
+      ],
+      customerDetails: {
+        shipperDetails: {
+          postalAddress: {
+            postalCode: &quot;14800&quot;,
+            cityName: &quot;Prague&quot;,
+            countryCode: &quot;CZ&quot;,
+            provinceCode: &quot;CZ&quot;,
+            addressLine1: &quot;V Parku 2308/10&quot;,
+            addressLine2: &quot;addres2&quot;,
+            addressLine3: &quot;addres3&quot;,
+            countyName: &quot;Central Bohemia&quot;,
+            provinceName: &quot;Central Bohemia&quot;,
+            countryName: &quot;Czech Republic&quot;,
+          },
+          contactInformation: {
+            email: &quot;that@before.de&quot;,
+            phone: &quot;+1123456789&quot;,
+            mobilePhone: &quot;+60112345678&quot;,
+            companyName: &quot;Company Name&quot;,
+            fullName: &quot;John Brew&quot;,
+          },
+          registrationNumbers: [
+            { typeCode: &quot;VAT&quot;, number: &quot;CZ123456789&quot;, issuerCountryCode: &quot;CZ&quot; },
+          ],
+          bankDetails: [
+            {
+              name: &quot;Russian Bank Name&quot;,
+              settlementLocalCurrency: &quot;RUB&quot;,
+              settlementForeignCurrency: &quot;USD&quot;,
+            },
+          ],
+          typeCode: &quot;business&quot;,
+        },
+        receiverDetails: {
+          postalAddress: {
+            postalCode: &quot;14800&quot;,
+            cityName: &quot;Prague&quot;,
+            countryCode: &quot;CZ&quot;,
+            provinceCode: &quot;CZ&quot;,
+            addressLine1: &quot;V Parku 2308/10&quot;,
+            addressLine2: &quot;addres2&quot;,
+            addressLine3: &quot;addres3&quot;,
+            countyName: &quot;Central Bohemia&quot;,
+            provinceName: &quot;Central Bohemia&quot;,
+            countryName: &quot;Czech Republic&quot;,
+          },
+          contactInformation: {
+            email: &quot;that@before.de&quot;,
+            phone: &quot;+1123456789&quot;,
+            mobilePhone: &quot;+60112345678&quot;,
+            companyName: &quot;Company Name&quot;,
+            fullName: &quot;John Brew&quot;,
+          },
+          registrationNumbers: [
+            { typeCode: &quot;VAT&quot;, number: &quot;CZ123456789&quot;, issuerCountryCode: &quot;CZ&quot; },
+          ],
+          bankDetails: [
+            {
+              name: &quot;Russian Bank Name&quot;,
+              settlementLocalCurrency: &quot;RUB&quot;,
+              settlementForeignCurrency: &quot;USD&quot;,
+            },
+          ],
+          typeCode: &quot;business&quot;,
+        },
+        buyerDetails: {
+          postalAddress: {
+            postalCode: &quot;14800&quot;,
+            cityName: &quot;Prague&quot;,
+            countryCode: &quot;CZ&quot;,
+            provinceCode: &quot;CZ&quot;,
+            addressLine1: &quot;V Parku 2308/10&quot;,
+            addressLine2: &quot;addres2&quot;,
+            addressLine3: &quot;addres3&quot;,
+            countyName: &quot;Central Bohemia&quot;,
+            provinceName: &quot;Central Bohemia&quot;,
+            countryName: &quot;Czech Republic&quot;,
+          },
+          contactInformation: {
+            email: &quot;buyer@domain.com&quot;,
+            phone: &quot;+44123456789&quot;,
+            mobilePhone: &quot;+42123456789&quot;,
+            companyName: &quot;Customer Company Name&quot;,
+            fullName: &quot;Mark Companer&quot;,
+          },
+          registrationNumbers: [
+            { typeCode: &quot;VAT&quot;, number: &quot;CZ123456789&quot;, issuerCountryCode: &quot;CZ&quot; },
+          ],
+          bankDetails: [
+            {
+              name: &quot;Russian Bank Name&quot;,
+              settlementLocalCurrency: &quot;RUB&quot;,
+              settlementForeignCurrency: &quot;USD&quot;,
+            },
+          ],
+          typeCode: &quot;business&quot;,
+        },
+        importerDetails: {
+          postalAddress: {
+            postalCode: &quot;14800&quot;,
+            cityName: &quot;Prague&quot;,
+            countryCode: &quot;CZ&quot;,
+            provinceCode: &quot;CZ&quot;,
+            addressLine1: &quot;V Parku 2308/10&quot;,
+            addressLine2: &quot;addres2&quot;,
+            addressLine3: &quot;addres3&quot;,
+            countyName: &quot;Central Bohemia&quot;,
+            provinceName: &quot;Central Bohemia&quot;,
+            countryName: &quot;Czech Republic&quot;,
+          },
+          contactInformation: {
+            email: &quot;that@before.de&quot;,
+            phone: &quot;+1123456789&quot;,
+            mobilePhone: &quot;+60112345678&quot;,
+            companyName: &quot;Company Name&quot;,
+            fullName: &quot;John Brew&quot;,
+          },
+          registrationNumbers: [
+            { typeCode: &quot;VAT&quot;, number: &quot;CZ123456789&quot;, issuerCountryCode: &quot;CZ&quot; },
+          ],
+          bankDetails: [
+            {
+              name: &quot;Russian Bank Name&quot;,
+              settlementLocalCurrency: &quot;RUB&quot;,
+              settlementForeignCurrency: &quot;USD&quot;,
+            },
+          ],
+          typeCode: &quot;business&quot;,
+        },
+        exporterDetails: {
+          postalAddress: {
+            postalCode: &quot;14800&quot;,
+            cityName: &quot;Prague&quot;,
+            countryCode: &quot;CZ&quot;,
+            provinceCode: &quot;CZ&quot;,
+            addressLine1: &quot;V Parku 2308/10&quot;,
+            addressLine2: &quot;addres2&quot;,
+            addressLine3: &quot;addres3&quot;,
+            countyName: &quot;Central Bohemia&quot;,
+            provinceName: &quot;Central Bohemia&quot;,
+            countryName: &quot;Czech Republic&quot;,
+          },
+          contactInformation: {
+            email: &quot;that@before.de&quot;,
+            phone: &quot;+1123456789&quot;,
+            mobilePhone: &quot;+60112345678&quot;,
+            companyName: &quot;Company Name&quot;,
+            fullName: &quot;John Brew&quot;,
+          },
+          registrationNumbers: [
+            { typeCode: &quot;VAT&quot;, number: &quot;CZ123456789&quot;, issuerCountryCode: &quot;CZ&quot; },
+          ],
+          bankDetails: [
+            {
+              name: &quot;Russian Bank Name&quot;,
+              settlementLocalCurrency: &quot;RUB&quot;,
+              settlementForeignCurrency: &quot;USD&quot;,
+            },
+          ],
+          typeCode: &quot;business&quot;,
+        },
+        sellerDetails: {
+          postalAddress: {
+            postalCode: &quot;14800&quot;,
+            cityName: &quot;Prague&quot;,
+            countryCode: &quot;CZ&quot;,
+            provinceCode: &quot;CZ&quot;,
+            addressLine1: &quot;V Parku 2308/10&quot;,
+            addressLine2: &quot;addres2&quot;,
+            addressLine3: &quot;addres3&quot;,
+            countyName: &quot;Central Bohemia&quot;,
+            provinceName: &quot;Central Bohemia&quot;,
+            countryName: &quot;Czech Republic&quot;,
+          },
+          contactInformation: {
+            email: &quot;that@before.de&quot;,
+            phone: &quot;+1123456789&quot;,
+            mobilePhone: &quot;+60112345678&quot;,
+            companyName: &quot;Company Name&quot;,
+            fullName: &quot;John Brew&quot;,
+          },
+          registrationNumbers: [
+            { typeCode: &quot;VAT&quot;, number: &quot;CZ123456789&quot;, issuerCountryCode: &quot;CZ&quot; },
+          ],
+          bankDetails: [
+            {
+              name: &quot;Russian Bank Name&quot;,
+              settlementLocalCurrency: &quot;RUB&quot;,
+              settlementForeignCurrency: &quot;USD&quot;,
+            },
+          ],
+          typeCode: &quot;business&quot;,
+        },
+        payerDetails: {
+          postalAddress: {
+            postalCode: &quot;14800&quot;,
+            cityName: &quot;Prague&quot;,
+            countryCode: &quot;CZ&quot;,
+            provinceCode: &quot;CZ&quot;,
+            addressLine1: &quot;V Parku 2308/10&quot;,
+            addressLine2: &quot;addres2&quot;,
+            addressLine3: &quot;addres3&quot;,
+            countyName: &quot;Central Bohemia&quot;,
+            provinceName: &quot;Central Bohemia&quot;,
+            countryName: &quot;Czech Republic&quot;,
+          },
+          contactInformation: {
+            email: &quot;that@before.de&quot;,
+            phone: &quot;+1123456789&quot;,
+            mobilePhone: &quot;+60112345678&quot;,
+            companyName: &quot;Company Name&quot;,
+            fullName: &quot;John Brew&quot;,
+          },
+          registrationNumbers: [
+            { typeCode: &quot;VAT&quot;, number: &quot;CZ123456789&quot;, issuerCountryCode: &quot;CZ&quot; },
+          ],
+          bankDetails: [
+            {
+              name: &quot;Russian Bank Name&quot;,
+              settlementLocalCurrency: &quot;RUB&quot;,
+              settlementForeignCurrency: &quot;USD&quot;,
+            },
+          ],
+          typeCode: &quot;business&quot;,
+        },
+        ultimateConsigneeDetails: {
+          postalAddress: {
+            postalCode: &quot;14800&quot;,
+            cityName: &quot;Prague&quot;,
+            countryCode: &quot;CZ&quot;,
+            provinceCode: &quot;CZ&quot;,
+            addressLine1: &quot;V Parku 2308/10&quot;,
+            addressLine2: &quot;addres2&quot;,
+            addressLine3: &quot;addres3&quot;,
+            countyName: &quot;Central Bohemia&quot;,
+            provinceName: &quot;Central Bohemia&quot;,
+            countryName: &quot;Czech Republic&quot;,
+          },
+          contactInformation: {
+            email: &quot;that@before.de&quot;,
+            phone: &quot;+1123456789&quot;,
+            mobilePhone: &quot;+60112345678&quot;,
+            companyName: &quot;Company Name&quot;,
+            fullName: &quot;John Brew&quot;,
+          },
+          registrationNumbers: [
+            { typeCode: &quot;VAT&quot;, number: &quot;CZ123456789&quot;, issuerCountryCode: &quot;CZ&quot; },
+          ],
+          bankDetails: {
+            typeCode: &quot;VAT&quot;,
+            number: &quot;CZ123456789&quot;,
+            issuerCountryCode: &quot;CZ&quot;,
+          },
+          typeCode: &quot;string&quot;,
+        },
+      },
+      content: {
+        packages: [
+          {
+            typeCode: &quot;2BP&quot;,
+            weight: 22.501,
+            dimensions: { length: 15.001, width: 15.001, height: 40.001 },
+            customerReferences: [
+              { value: &quot;Customer reference&quot;, typeCode: &quot;CU&quot; },
+            ],
+            identifiers: [
+              {
+                typeCode: &quot;shipmentId&quot;,
+                value: &quot;1234567890&quot;,
+                dataIdentifier: &quot;00&quot;,
+              },
+            ],
+            description: &quot;Piece content description&quot;,
+            labelBarcodes: [
+              {
+                position: &quot;left&quot;,
+                symbologyCode: &quot;93&quot;,
+                content: &quot;string&quot;,
+                textBelowBarcode: &quot;text below left barcode&quot;,
+              },
+            ],
+            labelText: [
+              {
+                position: &quot;left&quot;,
+                caption: &quot;text caption&quot;,
+                value: &quot;text value&quot;,
+              },
+            ],
+            labelDescription: &quot;bespoke label description&quot;,
+          },
+        ],
+        isCustomsDeclarable: true,
+        declaredValue: 150,
+        declaredValueCurrency: &quot;CZK&quot;,
+        exportDeclaration: {
+          lineItems: [
+            {
+              number: 1,
+              description: &quot;line item description&quot;,
+              price: 150,
+              quantity: { value: 1, unitOfMeasurement: &quot;BOX&quot; },
+              commodityCodes: [{ typeCode: &quot;outbound&quot;, value: 851713 }],
+              exportReasonType: &quot;permanent&quot;,
+              manufacturerCountry: &quot;CZ&quot;,
+              weight: { netValue: 10, grossValue: 10 },
+              isTaxesPaid: true,
+              additionalInformation: [&quot;string&quot;],
+              customerReferences: [{ typeCode: &quot;AFE&quot;, value: &quot;custref123&quot; }],
+              customsDocuments: [{ typeCode: &quot;972&quot;, value: &quot;custdoc456&quot; }],
+              preCalculatedLineItemTotalValue: 150,
+            },
+          ],
+          invoice: {
+            number: &quot;12345-ABC&quot;,
+            date: &quot;2020-03-18&quot;,
+            signatureName: &quot;Brewer&quot;,
+            signatureTitle: &quot;Mr.&quot;,
+            signatureImage: &quot;Base64 encoded image&quot;,
+            instructions: [&quot;string&quot;],
+            customerDataTextEntries: [&quot;string&quot;],
+            totalNetWeight: 999999999999,
+            totalGrossWeight: 999999999999,
+            customerReferences: [{ typeCode: &quot;CU&quot;, value: &quot;custref112&quot; }],
+            termsOfPayment: &quot;100 days&quot;,
+            indicativeCustomsValues: {
+              importCustomsDutyValue: 150.57,
+              importTaxesValue: 49.43,
+              totalWithImportDutiesAndTaxes: [350.57],
+            },
+            preCalculatedTotalValues: {
+              preCalculatedTotalGoodsValue: 49.43,
+              preCalculatedTotalInvoiceValue: 150.57,
+            },
+          },
+          remarks: [{ value: &quot;declaration remark&quot; }],
+          additionalCharges: [
+            { value: 10, caption: &quot;fee&quot;, typeCode: &quot;freight&quot; },
+          ],
+          destinationPortName: &quot;port details&quot;,
+          placeOfIncoterm: &quot;port of departure or destination details&quot;,
+          payerVATNumber: &quot;12345ED&quot;,
+          recipientReference: &quot;recipient reference&quot;,
+          exporter: { id: &quot;123&quot;, code: &quot;EXPCZ&quot; },
+          packageMarks: &quot;marks&quot;,
+          declarationNotes: [{ value: &quot;up to three declaration notes&quot; }],
+          exportReference: &quot;export reference&quot;,
+          exportReason: &quot;export reason&quot;,
+          exportReasonType: &quot;permanent&quot;,
+          licenses: [{ typeCode: &quot;export&quot;, value: &quot;license&quot; }],
+          shipmentType: &quot;personal&quot;,
+          customsDocuments: [{ typeCode: &quot;972&quot;, value: &quot;custdoc445&quot; }],
+        },
+        description: &quot;shipment description&quot;,
+        USFilingTypeValue: &quot;12345&quot;,
+        incoterm: &quot;DAP&quot;,
+        unitOfMeasurement: &quot;metric&quot;,
+      },
+      documentImages: [
+        {
+          typeCode: &quot;INV&quot;,
+          imageFormat: &quot;PDF&quot;,
+          content: &quot;base64 encoded image&quot;,
+        },
+      ],
+      onDemandDelivery: {
+        deliveryOption: &quot;servicepoint&quot;,
+        location: &quot;front door&quot;,
+        specialInstructions: &quot;ringe twice&quot;,
+        gateCode: &quot;1234&quot;,
+        whereToLeave: &quot;concierge&quot;,
+        neighbourName: &quot;Mr.Dan&quot;,
+        neighbourHouseNumber: &quot;777&quot;,
+        authorizerName: &quot;Newman&quot;,
+        servicePointId: &quot;SPL123&quot;,
+        requestedDeliveryDate: &quot;2020-04-20&quot;,
+      },
+      requestOndemandDeliveryURL: false,
+      shipmentNotification: [
+        {
+          typeCode: &quot;email&quot;,
+          receiverId: &quot;receiver@email.com&quot;,
+          languageCode: &quot;eng&quot;,
+          languageCountryCode: &quot;UK&quot;,
+          bespokeMessage: &quot;message to be included in the notification&quot;,
+        },
+      ],
+      prepaidCharges: [
+        { typeCode: &quot;freight&quot;, currency: &quot;CZK&quot;, value: 200, method: &quot;cash&quot; },
+      ],
+      getTransliteratedResponse: false,
+      estimatedDeliveryDate: { isRequested: false, typeCode: &quot;QDDC&quot; },
+      getAdditionalInformation: [
+        { typeCode: &quot;pickupDetails&quot;, isRequested: true },
+      ],
+      parentShipment: { productCode: &quot;s&quot;, packagesCount: 1 },
+    };
+    return await axios.post(dhlconfig.basePathTesting + &quot;/shipments&quot;, data, {
+      headers: {
+        &quot;content-type&quot;: &quot;application/json&quot;,
+        &quot;Message-Reference&quot;: &quot;MAHER JEWELLERY CO&quot;,
+        &quot;Message-Reference-Date&quot;: &quot;MAHER JEWELLERY CO&quot;,
+        &quot;Plugin-Name&quot;: &quot;MAHER JEWELLERY CO&quot;,
+        &quot;Plugin-Version&quot;: &quot;1.0.0&quot;,
+        &quot;Shipping-System-Platform-Name&quot;: &quot;MAHER JEWELLERY CO&quot;,
+        &quot;Shipping-System-Platform-Version&quot;: &quot;MAHER JEWELLERY CO&quot;,
+        &quot;Webstore-Platform-Name&quot;: &quot;MAHER JEWELLERY CO&quot;,
+        &quot;Webstore-Platform-Version&quot;: &quot;MAHER JEWELLERY CO&quot;,
+        Authorization: &quot;Basic &quot; + dhlconfig.REPLACE_BASIC_AUTH,
+      },
+    });
+  } catch (error) {
+    console.log(error.response.data);
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/helpers/smsaexpress.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addShip"></a>
+                    <span class="name">
+                        <span ><b>addShip</b></span>
+                        <a href="#addShip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (body: any, cart,user) &#x3D;&gt; {
+  try {
+    const weight &#x3D; cart.cartItemsList
+      .map((el) &#x3D;&gt; el.productsId.weight)
+      .reduce((x, y) &#x3D;&gt; Number(x) + Number(y), 0);
+
+    const obj &#x3D; {
+      refNo: cart.id,
+      idNo: cart.usersId.id,
+      cName: cart.usersId.fullName ? cart.usersId.fullName : cart.usersId.email,
+      Cntry: &quot;KSA&quot;,
+      cCity: cart.addressesId?.citiesId.name,
+      cZip: cart.addressesId?.zip,
+      cMobile: cart.addressesId?.phone,
+      cAddr1: cart.addressesId?.address,
+      shipType: &quot;DLV&quot;,
+      PCs: cart.cartItemsList.length,
+      weight: String(weight),
+      sName: &quot;MAHER JEWELLERY CO&quot;,
+      sContact: user.fullName,
+      sAddr1: &quot;test&quot;,
+      sCity: &quot;Riyadh&quot;,
+      sPhone: &quot;test&quot;,
+      sCntry: &quot;KSA&quot;,
+    };
+
+    body.passkey &#x3D; smsaexpressconfig.passkeyTesting;
+    return await axios.post(&#x60;http://track.smsaexpress.com/SECOM/SMSAwebService.asmx?WSDL&#x60;, obj);
+  } catch (error) {
+    console.log(error.response.data);
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/main.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cors"></a>
+                    <span class="name">
+                        <span ><b>cors</b></span>
+                        <a href="#cors"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>require(&quot;cors&quot;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/helpers/ejs_to_pdf.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createPdf"></a>
+                    <span class="name">
+                        <span ><b>createPdf</b></span>
+                        <a href="#createPdf"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (filePath: string, options &#x3D; {}, data &#x3D; {}) &#x3D;&gt; {
+  try {
+    const browser &#x3D; await puppeteer.launch({
+        args: [&#x27;--no-sandbox&#x27;],
+      });
+    const page &#x3D; await browser.newPage();
+
+    const html &#x3D; await fs.readFile(
+      resolve(&quot;templates&quot;, filePath, &quot;html.ejs&quot;),
+      &quot;utf8&quot;
+    );
+
+    const content &#x3D; ejs.render(html, data);
+    await page.setContent(content);
+
+    let text &#x3D; Math.floor(100000 + Math.random() * 900000);
+    const fileName &#x3D; Date.now() + text + &quot;.pdf&quot;;
+    const buffer &#x3D; await page.pdf({
+      path: &quot;./pdf/&quot; + fileName,
+      format: &quot;a4&quot;,
+      printBackground: true,
+      ...options,
+    });
+    await browser.close();
+    return fileName;
+  } catch (e) {
+    console.log(e);
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fs"></a>
+                    <span class="name">
+                        <span ><b>fs</b></span>
+                        <a href="#fs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>require(&quot;fs-extra&quot;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="puppeteer"></a>
+                    <span class="name">
+                        <span ><b>puppeteer</b></span>
+                        <a href="#puppeteer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>require(&quot;puppeteer&quot;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/helpers/email.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EmailConfig"></a>
+                    <span class="name">
+                        <span ><b>EmailConfig</b></span>
+                        <a href="#EmailConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  host: &#x27;mail.masrhosting.com&#x27;,
+  port: 465,
+  secure: true,
+  auth: {
+    user: &#x27;maherjewellery@masrhosting.com&#x27;,
+    pass: &#x27;8.Njdr6e{,rR&#x27;,
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="langConfig"></a>
+                    <span class="name">
+                        <span ><b>langConfig</b></span>
+                        <a href="#langConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  locales: [&#x27;ar&#x27;, &#x27;en&#x27;],
+  defaultLocale: &#x27;en&#x27;,
+  directory: path.resolve(&#x27;templates/i18n&#x27;),
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendEmail"></a>
+                    <span class="name">
+                        <span ><b>sendEmail</b></span>
+                        <a href="#sendEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(body: Email) &#x3D;&gt; {
+  return new Promise((resolve, reject) &#x3D;&gt; {
+    const template &#x3D; body.templateName;
+    const lang &#x3D; body.templateLang || &#x27;en&#x27;;
+    const templateData &#x3D; body.templateData || {};
+    delete body.templateName;
+    delete body.templateLang;
+    delete body.templateData;
+    SendEmail.send({
+      template,
+      message: body,
+      locals: {
+        locale: lang, // &lt;------ CUSTOMIZE LOCALE HERE (defaults to &#x60;i18n.defaultLocale&#x60; - &#x60;en&#x60;)
+        // Data to be sent to template engine.
+        ...templateData,
+      },
+    })
+      .then(resolve)
+      .catch(reject);
+  });
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SendEmail"></a>
+                    <span class="name">
+                        <span ><b>SendEmail</b></span>
+                        <a href="#SendEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Email({
+  message: {
+    from: &#x27;maherjewellery@masrhosting.com&#x27;,
+  },
+  views: {
+    // directory where email templates reside
+    root: path.resolve(&#x27;templates&#x27;),
+    options: {
+      extension: &#x27;ejs&#x27; // &lt;---- HERE
+    }
+  },
+  preview: false,
+  transport: transporter,
+  i18n: langConfig,
+  // uncomment below to send emails in development/test env:
+  send: true,
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transporter"></a>
+                    <span class="name">
+                        <span ><b>transporter</b></span>
+                        <a href="#transporter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>nodemailer.createTransport(EmailConfig)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/helpers/i18n.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTransByKey"></a>
+                    <span class="name">
+                        <span ><b>getTransByKey</b></span>
+                        <a href="#getTransByKey"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(key: string, lang: string) &#x3D;&gt; {
+  lang &#x3D; lang || &#x27;en&#x27;;
+  if (langObject[lang][key]) {
+    return langObject[lang][key];
+  } else {
+    return key;
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="langObject"></a>
+                    <span class="name">
+                        <span ><b>langObject</b></span>
+                        <a href="#langObject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{ ar, en }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/helpers/methods.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadImage"></a>
+                    <span class="name">
+                        <span ><b>uploadImage</b></span>
+                        <a href="#uploadImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (image, type &#x3D; &#x27;png&#x27;) &#x3D;&gt; {
+  // const type &#x3D; image.substring(
+  //   image.indexOf(&#x27;image/&#x27;) + 6,
+  //   image.indexOf(&#x27;;base64,&#x27;),
+  // );
+  // if ([&#x27;jpg&#x27;, &#x27;png&#x27;, &#x27;gif&#x27;, &#x27;jpeg&#x27;].includes(type)) {
+  //   const matches &#x3D; image.substring(image.indexOf(&#x27;base64,&#x27;) + 7);
+  if ([&#x27;jpg&#x27;, &#x27;png&#x27;, &#x27;gif&#x27;, &#x27;jpeg&#x27;].includes(type)) {
+
+    
+    const file &#x3D; Date.now() + &#x27;alwanlab&#x27; + Date.now() + &#x27;.&#x27; + type;
+
+    await fs.writeFileSync(&#x27;uploads/&#x27; + file, image, &#x27;base64&#x27;);
+    return await file;
+  }
+  // } else {
+  //   throw new HttpException(
+  //     &#x27;The image is not suitable for upload&#x27;,
+  //     HttpStatus.METHOD_NOT_ALLOWED,
+  //   );
+  // }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadImageBuffer"></a>
+                    <span class="name">
+                        <span ><b>uploadImageBuffer</b></span>
+                        <a href="#uploadImageBuffer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (image) &#x3D;&gt; {
+  if (
+    [&#x27;image/jpg&#x27;, &#x27;image/png&#x27;, &#x27;image/gif&#x27;, &#x27;image/jpeg&#x27;].includes(
+      image.mimetype,
+    )
+  ) {
+    const type &#x3D; image.mimetype.substring(
+      image.mimetype.indexOf(&#x27;/&#x27;) + 1,
+      image.mimetype.length,
+    );
+    const file &#x3D; Date.now() + &#x27;adviseA&#x27; + Date.now() + &#x27;.&#x27; + type;
+
+    await fs.writeFileSync(&#x27;uploads/&#x27; + file, image.buffer);
+    return await file;
+  } else {
+    throw new HttpException(
+      &#x27;The image is not suitable for upload&#x27;,
+      HttpStatus.METHOD_NOT_ALLOWED,
+    );
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadImageX"></a>
+                    <span class="name">
+                        <span ><b>uploadImageX</b></span>
+                        <a href="#uploadImageX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (image) &#x3D;&gt; {
+
+  let type &#x3D; image.substring(
+    image.indexOf(&quot;;base64,&quot;) - 3,
+    image.indexOf(&quot;;base64,&quot;)
+  );
+  if (type &#x3D;&#x3D; &quot;peg&quot;) {
+    type &#x3D; &quot;jpeg&quot;;
+  }
+  if ([&quot;jpg&quot;, &quot;png&quot;, &quot;gif&quot;, &quot;jpeg&quot;, &quot;pdf&quot;,&quot;svg&quot;,&quot;mp4&quot;].includes(type)) {
+    const matches &#x3D; image.substring(image.indexOf(&quot;base64,&quot;) + 7);
+    const file &#x3D; Date.now() + &quot;ERP&quot; + Date.now() + &quot;.&quot; + type;
+
+    await fs.writeFileSync(&quot;uploads/&quot; + file, matches, &quot;base64&quot;);
+    return await file;
+  } else {
+    throw new HttpException(
+      &quot;The image is not suitable for upload&quot;,
+      HttpStatus.METHOD_NOT_ALLOWED
+    );
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadListImageBuffer"></a>
+                    <span class="name">
+                        <span ><b>uploadListImageBuffer</b></span>
+                        <a href="#uploadListImageBuffer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (images, img) &#x3D;&gt; {
+  let list &#x3D; [];
+  let arr &#x3D; [];
+  if (images.length &gt; 0) {
+    for (const image of images) {
+      let text &#x3D; Math.floor(100000 + Math.random() * 900000);
+      if (
+        [&#x27;image/jpg&#x27;, &#x27;image/png&#x27;, &#x27;image/gif&#x27;, &#x27;image/jpeg&#x27;].includes(
+          image.mimetype,
+        )
+      ) {
+        let type &#x3D; image.mimetype
+          .toString()
+          .substring(image.mimetype.indexOf(&#x27;/&#x27;) + 1, image.mimetype.length);
+
+        const file &#x3D; Date.now() + &#x27;newTest&#x27; + Date.now() + text + &#x27;.&#x27; + type;
+        await fs.writeFileSync(&#x27;uploads/&#x27; + file, image.buffer);
+        list.push({ name: file });
+      } else {
+        throw new HttpException(
+          &#x27;The image is not suitable for upload&#x27;,
+          HttpStatus.METHOD_NOT_ALLOWED,
+        );
+      }
+    }
+    let arr1 &#x3D; list;
+    let combined &#x3D; [];
+
+    let arr2 &#x3D; img;
+    if (arr2.length &gt; 0) {
+      const result &#x3D; arr2.reduce(function(a, e, i) {
+        if (e &#x3D;&#x3D;&#x3D; &#x27;-1&#x27;) a.push(i);
+        return a;
+      }, []);
+
+      for (const iterator of result) {
+        arr2[iterator] &#x3D; &#x27;&#x27;;
+      }
+      combined &#x3D; arr1.map(function(item, index) {
+        return { name: item.name, description: arr2[index] };
+      });
+    } else {
+      combined &#x3D; arr1.map(function(item) {
+        return { name: item.name };
+      });
+    }
+
+    return await combined;
+  }
+  if (images.length &#x3D;&#x3D; 0) {
+    return [];
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadPdf"></a>
+                    <span class="name">
+                        <span ><b>uploadPdf</b></span>
+                        <a href="#uploadPdf"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (image) &#x3D;&gt; {
+  // const matches &#x3D; image.substring(image.indexOf(&#x27;base64,&#x27;) + 7);
+  const file &#x3D; Date.now() + &#x27;alwanlab&#x27; + Date.now() + &#x27;.pdf&#x27;;
+
+  await fs.writeFileSync(&#x27;uploads/&#x27; + file, image, &#x27;base64&#x27;);
+  return await file;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadVideo"></a>
+                    <span class="name">
+                        <span ><b>uploadVideo</b></span>
+                        <a href="#uploadVideo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (image, type) &#x3D;&gt; {
+  // const matches &#x3D; image.substring(image.indexOf(&#x27;base64,&#x27;) + 7);
+  if (type !&#x3D; &#x27;php&#x27;) {
+    const file &#x3D; Date.now() + &#x27;alwanlab&#x27; + Date.now() + &#x27;.&#x27; + type;
+    await fs.writeFileSync(&#x27;uploads/&#x27; + file, image, &#x27;base64&#x27;);
+    return await file;
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/decorator/user.decorator.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UserInfo"></a>
+                    <span class="name">
+                        <span ><b>UserInfo</b></span>
+                        <a href="#UserInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createParamDecorator(
+  (data, ctx: ExecutionContext) &#x3D;&gt; {
+    const req &#x3D; ctx.switchToHttp().getRequest();
+    
+    return data ? req.user &amp;&amp; req.user[data] : req.user;
+
+  },
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
